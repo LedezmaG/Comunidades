@@ -3,7 +3,7 @@ import { AppRouter } from './Routers/AppRouter';
 import { AuthContext } from './Auth/AuthContext';
 import { authReducer } from './Auth/AuthReducer';
 import "./Assets/Styles/Main.css"
-import "./Assets/Styles/ButtonsCustom.css"
+import "./Assets/Styles/CustomElements.css"
 
 function App() {
   const [user, dispatch] = useReducer(authReducer, {})

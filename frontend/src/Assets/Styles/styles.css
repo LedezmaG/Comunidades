@@ -1,0 +1,11 @@
+/* Images */
+.img-md {
+    width: 150px;
+    height: 150px;
+}
+
+.row-placeholder{
+    background-color: #F8F8F9;
+    border-radius: 5px;
+    padding: 10px;
+}

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap');
+
+:root {
+    /* Colors */
+    --c-background: #f6f6f4;
+    --c-background-diseable: #dbd9d2;
+    
+    --c-primary: #ffe01b;
+    --c-primary-hard: #d99536;
+    --c-primary-medium: #e7b75f;
+    --c-primary-lite: #fdf8ea;
+
+    --c-secondary: #007c89;
+    --c-secondary-hover: #006570;
+    --c-grey: #efeeea;
+    --c-holder: #a1acb8;
+    --c-black: #241c15;
+    
+    --txt-grey-lite: #566a7f;
+    --btn-text-size: .8rem;
+
+}
+
+#root{
+    height: 100%;
+    overflow-x: hidden;
+}
+
+html, body {
+    background-color: var(--c-background);
+    font-family: 'Inter Tight', sans-serif;
+    height: 100%;
+    color: var(--txt-grey-lite);
+}
+
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+}
+
+a{
+    color: var(--c-secondary);
+    cursor: pointer;
+    text-decoration: none;
+    line-height: normal;
+}
+
+.main-content {
+    height: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: stretch;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content-center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content-row-between {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content-col-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+/* Colors */
+.txt_c-black {
+    color: var(--c-black);
+}
+.txt_c-grey {
+    color: var(--c-holder);
+}
+
+/* images */
+.img-cover {
+    width: 100%;
+    height: 100%;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid #d9dee3;
+    border-radius: 0.5rem;
+    background-clip: padding-box;
+    box-shadow: 0 2px 6px 0 rgb(67 89 113 / 12%);
+}
+
+/* backgound color */
+.bg-secondary{
+    background-color: var(--c-secondary) !important;
+}
