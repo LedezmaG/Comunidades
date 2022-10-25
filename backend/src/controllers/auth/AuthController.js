@@ -37,7 +37,7 @@ const SignInController = async (req, res = response) => {
                 role: user.id_role,
             },
             `${process.env.SECRET_KEY}`,
-            { expiresIn: '24h' }
+            { expiresIn: '30d' }
         )
 
         await transaction.commit()

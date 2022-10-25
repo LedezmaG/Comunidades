@@ -3,7 +3,6 @@ const { check } = require('express-validator');
 const { GetAll, GetById, Create, Update, Delete } = require('../../controllers/system/ModuleController');
 const { fileValidator } = require('../../helpers/fileValidator');
 const { JwtVerify } = require('../../helpers/jwtVerify');
-const { validatePermissions } = require('../../helpers/permissions');
 const router = Router();
 
 router.use( JwtVerify )

@@ -1,10 +1,14 @@
 const UsersModel = require('../../../models/catalog/users');
+const RolesModel = require('../../../models/system/roles/Roles');
 const connection = require('../../../database/connection');
 
 const GetById = async ( req, res = response ) => {
     try {
         const {id} = req.params;
-        const byId = await UsersModel.findOne({where:{ id, active: true }})
+        const byId = await UsersModel.findOne({
+            where:{ id, active: true },
+            include: [{ model: RolesModel }],
+        })
         if (!byId) {
             throw new Error("Data not found")
         }

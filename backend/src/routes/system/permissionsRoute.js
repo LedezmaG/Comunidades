@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { GetAll, GetById, Create, Update, Delete, GetByRol } = require('../../controllers/system/PermissionsController');
+const { GetAll, GetById, Create, Update, Delete } = require('../../controllers/system/PermissionsController');
 const { fileValidator } = require('../../helpers/fileValidator');
 const { JwtVerify } = require('../../helpers/jwtVerify');
 const router = Router();
@@ -14,15 +14,6 @@ router.get(
         fileValidator
     ],
     GetAll
-);
-
-router.get( 
-    '/permissions/rol/:id',
-    [
-        check("id", "id no es valido").isInt(),
-        fileValidator
-    ],
-    GetByRol
 );
 
 router.get( 

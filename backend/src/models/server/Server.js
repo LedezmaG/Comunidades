@@ -22,7 +22,7 @@ class Server {
 
     async dbConect() {
         connection
-        .sync({ alter: false })
+        .sync({ alter: true })
         .then(() => console.log("Database online") )
         .catch((error) => {
             console.log("Database error:" + error)

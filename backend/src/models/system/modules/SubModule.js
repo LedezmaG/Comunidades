@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize')
 const Connection = require('../../../database/connection');
-const ModulesModel = require('./module');
+const ModulesModel = require('./Module');
 
 const SubModuleModel = Connection.define('system_sub_modules', {
     id: {

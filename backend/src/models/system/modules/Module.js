@@ -1,36 +1,29 @@
 const { DataTypes } = require('sequelize')
-const Connection = require('../../database/connection')
+const Connection = require('../../../database/connection');
 
-const UsersModel = Connection.define('catalog_users', {
+const ModulesModel = Connection.define('system_modules', {
     id: {
         type: DataTypes.INTEGER.UNSIGNED,
         autoIncrement: true,
         primaryKey: true,
     },
-    id_role: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-    },
-    id_avatar: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-    },
-    first_name: {
+    name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    last_name: {
+    label: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    link: {
         type: DataTypes.STRING,
         allowNull: true,
         defaultValue: null,
     },
-    email: {
+    icon: {
         type: DataTypes.STRING,
-        allowNull: false,
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: null,
     },
     active: {
         type: DataTypes.BOOLEAN,
@@ -39,4 +32,5 @@ const UsersModel = Connection.define('catalog_users', {
     },
 })
 
-module.exports = UsersModel;
+
+module.exports = ModulesModel;

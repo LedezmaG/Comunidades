@@ -1,7 +1,8 @@
 const { DataTypes } = require('sequelize')
 const Connection = require('../../../database/connection')
-const ModulesModel = require('./module')
-const SubModuleModel = require('./subModule')
+
+const ModulesModel = require('./Module')
+const SubModuleModel = require('./SubModule')
 const RolesModel = require('../roles/roles')
 
 const PremissionsModel = Connection.define('system_module_permission', {
@@ -35,6 +36,14 @@ const PremissionsModel = Connection.define('system_module_permission', {
         allowNull: false,
     },
     delete: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+    },
+    export: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+    },
+    import: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
     },
