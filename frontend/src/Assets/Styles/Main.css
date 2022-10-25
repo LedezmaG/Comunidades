@@ -55,6 +55,10 @@ a{
     flex: 1 1 auto;
     flex-direction: column;
     justify-content: space-between;
+    width: 80%;
+    left: 20%;
+    position: absolute;
+    height: 100%;
 }
 
 .content-center {
