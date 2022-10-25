@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap");
 
 :root {
     /* Colors */
     --c-background: #f6f6f4;
     --c-background-diseable: #dbd9d2;
-    
+
     --c-primary: #ffe01b;
     --c-primary-hard: #d99536;
     --c-primary-medium: #e7b75f;
@@ -16,29 +16,31 @@
     --c-grey: #efeeea;
     --c-holder: #a1acb8;
     --c-black: #241c15;
-    
-    --txt-grey-lite: #566a7f;
-    --btn-text-size: .8rem;
 
+    --txt-grey-lite: #566a7f;
+    --btn-text-size: 0.8rem;
 }
 
-#root{
+#root {
     height: 100%;
     overflow-x: hidden;
 }
 
-html, body {
+html,
+body {
     background-color: var(--c-background);
-    font-family: 'Inter Tight', sans-serif;
+    font-family: "Inter Tight", sans-serif;
     height: 100%;
     color: var(--txt-grey-lite);
 }
 
-h1, h2, h3 {
-    font-family: 'Merriweather', serif;
+h1,
+h2,
+h3 {
+    font-family: "Merriweather", serif;
 }
 
-a{
+a {
     color: var(--c-secondary);
     cursor: pointer;
     text-decoration: none;
@@ -81,7 +83,6 @@ a{
     justify-content: space-between;
 }
 
-
 /* Colors */
 .txt_c-black {
     color: var(--c-black);
@@ -111,6 +112,6 @@ a{
 }
 
 /* backgound color */
-.bg-secondary{
+.bg-secondary {
     background-color: var(--c-secondary) !important;
 }

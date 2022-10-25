@@ -1,20 +1,22 @@
-.btn-primary{
+.btn-primary {
     background-color: var(--c-primary);
     color: var(--c-black);
     border: 1px solid black;
     border-radius: 100px;
     padding-left: 20px;
     padding-right: 20px;
-    font-family: "Graphik Web","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+    font-family: "Graphik Web", "Helvetica Neue", Helvetica, Arial, Verdana,
+        sans-serif;
 }
 
-.btn-primary:first-child:hover, :not(.btn-check)+.btn-primary:hover {
-    background-color: #FFDB1B;
+.btn-primary:first-child:hover,
+:not(.btn-check) + .btn-primary:hover {
+    background-color: #ffdb1b;
     color: var(--c-black);
     border: 1px solid black;
 }
 
-.btn-secondary{
+.btn-secondary {
     background-color: var(--c-secondary);
     border: 1px solid transparent;
     color: #f6f6f4;
@@ -22,14 +24,16 @@
     padding-left: 10px;
     padding-right: 10px;
     letter-spacing: 1px;
-    font-family: "Graphik Web","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+    font-family: "Graphik Web", "Helvetica Neue", Helvetica, Arial, Verdana,
+        sans-serif;
 }
 
-.btn-secondary:first-child:hover, :not(.btn-check)+.btn-secondary:hover {
+.btn-secondary:first-child:hover,
+:not(.btn-check) + .btn-secondary:hover {
     background-color: var(--c-secondary-hover);
 }
 
-.btn-light{
+.btn-light {
     background-color: #efeeea;
     border: 1px solid transparent;
     color: #241c15;
@@ -37,26 +41,30 @@
     padding-left: 10px;
     padding-right: 10px;
     letter-spacing: 1px;
-    font-family: "Graphik Web","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+    font-family: "Graphik Web", "Helvetica Neue", Helvetica, Arial, Verdana,
+        sans-serif;
 }
 
-.btn-light:first-child:hover, :not(.btn-check)+.btn-light:hover {
+.btn-light:first-child:hover,
+:not(.btn-check) + .btn-light:hover {
     background-color: #d9d7cd;
     color: #241c15;
 }
 
-.btn-ghost{
+.btn-ghost {
     background: transparent;
     border: 1px solid transparent;
     border-radius: 2px;
     padding-left: 10px;
     padding-right: 10px;
     letter-spacing: 1px;
-    font-family: "Graphik Web","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+    font-family: "Graphik Web", "Helvetica Neue", Helvetica, Arial, Verdana,
+        sans-serif;
     color: #697a8d;
 }
 
-.btn-ghost:first-child:hover, :not(.btn-check)+.btn-ghost:hover {
+.btn-ghost:first-child:hover,
+:not(.btn-check) + .btn-ghost:hover {
     background: transparent;
 }
 
@@ -70,7 +78,7 @@
 }
 
 .error-msg {
-    color: #C21010;
+    color: #c21010;
     font-size: small;
     letter-spacing: 1px;
 }

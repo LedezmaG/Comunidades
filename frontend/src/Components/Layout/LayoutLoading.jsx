@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const LayoutLoading = () => {
-    return (
-        <div className="container-loading">
-        Loading...
-        </div>
-    )
-}
+    return <div className="container-loading">Loading...</div>;
+};

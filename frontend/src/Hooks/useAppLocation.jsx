@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export const useAppLocation = () => {
-    
-    const location = useLocation()
-    const [titlePre, setTitlePre] = useState(null)
+    const location = useLocation();
+    const [titlePre, setTitlePre] = useState(null);
 
     useEffect(() => {
-        const path = location.pathname.split("/")
-        
+        const path = location.pathname.split("/");
+
         if (path.includes("new")) {
-            setTitlePre("Agregar")
+            setTitlePre("Agregar");
         }
         if (path.includes("view")) {
-            setTitlePre("")
+            setTitlePre("");
         }
         if (path.includes("edit")) {
-            setTitlePre("Editar")
+            setTitlePre("Editar");
         }
-    }, [])
-    
-    return { titlePre }
-}
+    }, []);
+
+    return { titlePre };
+};

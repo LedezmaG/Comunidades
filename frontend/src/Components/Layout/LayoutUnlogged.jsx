@@ -1,10 +1,6 @@
-import React from 'react'
-import '../../Assets/Styles/Layout.css'
+import React from "react";
+import "../../Assets/Styles/Layout.css";
 
 export const LayoutUnlogged = ({ children }) => {
-    return (
-        <div className='main-content'>
-            {children}
-        </div>
-    )
-}
+    return <div className="main-content">{children}</div>;
+};

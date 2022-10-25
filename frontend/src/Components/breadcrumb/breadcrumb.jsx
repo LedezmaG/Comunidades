@@ -1,11 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-export const breadcrumb = ({path}) => {
+export const breadcrumb = ({ path }) => {
     return (
         <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
-                
                 <li className="breadcrumb-item">
                     <Link href="#">Home</Link>
                 </li>
@@ -14,5 +13,5 @@ export const breadcrumb = ({path}) => {
                 </li>
             </ol>
         </nav>
-    )
-}
+    );
+};
