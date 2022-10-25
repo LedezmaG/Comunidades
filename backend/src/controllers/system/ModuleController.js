@@ -1,148 +1,148 @@
-const connection = require('../../database/connection');
-const ModulesModel = require('../../models/system/modules/module');
-const PremissionsModel = require('../../models/system/modules/permissions');
+const connection = require("../../database/connection");
+const ModulesModel = require("../../models/system/modules/module");
+const PremissionsModel = require("../../models/system/modules/permissions");
 
-const GetAll = async ( req, res = response ) => {
+const GetAll = async (req, res = response) => {
     try {
-        const { auth_user } = req
+        const { auth_user } = req;
 
         const all = await PremissionsModel.findAll({
-            where:{ 
+            where: {
                 id_role: auth_user.role,
                 active: true,
             },
             include: [{ model: ModulesModel }],
-        })
+        });
 
         if (!all) {
-            throw new Error("Data not found")
+            throw new Error("Data not found");
         }
         return res.status(200).json({
             status: true,
-            response: all
-        })
+            response: all,
+        });
     } catch (error) {
-        return res.status(400).json({status: false, messaje: error.message})
+        return res.status(400).json({ status: false, messaje: error.message });
     }
-}
+};
 
-const GetById = async ( req, res = response ) => {
+const GetById = async (req, res = response) => {
     try {
-        const {id} = req.params;
+        const { id } = req.params;
         const byId = await PremissionsModel.findOne({
-            where:{ 
+            where: {
                 id_module: id,
                 active: true,
             },
             include: [{ model: ModulesModel }],
-        })
+        });
         if (!byId) {
-            throw new Error("Data not found")
+            throw new Error("Data not found");
         }
         return res.status(200).json({
             status: true,
-            response: byId
-        })
+            response: byId,
+        });
     } catch (error) {
         console.log(error);
-        return res.status(400).json({status: false, messaje: error.message})
+        return res.status(400).json({ status: false, messaje: error.message });
     }
-}
+};
 
 const Create = async (req, res = response) => {
-    const transaction = await connection.transaction()
+    const transaction = await connection.transaction();
     try {
-        const { name, label, link, icon } = req.body
+        const { name, label, link, icon } = req.body;
         const created = await ModulesModel.create(
             {
                 name,
                 label,
                 link,
-                icon
+                icon,
             },
             { transaction }
-        )
-        await transaction.commit()
+        );
+        await transaction.commit();
         return res.status(200).json({
             status: true,
-            response: created
-        })
+            response: created,
+        });
     } catch (error) {
-        await transaction.rollback()
-        return res.status(400).json({status: false, messaje: error.message})
+        await transaction.rollback();
+        return res.status(400).json({ status: false, messaje: error.message });
     }
-} 
+};
 
 const Update = async (req, res = response) => {
-    const transaction = await connection.transaction()
+    const transaction = await connection.transaction();
     try {
-        const { id, name, label, link, icon } = req.body
+        const { id, name, label, link, icon } = req.body;
         const fined = await ModulesModel.findOne({
-            where: { 
+            where: {
                 id,
-                active: true
+                active: true,
             },
             transaction,
-        })
+        });
 
         if (!fined) {
-            throw new Error("Data not fonud")
+            throw new Error("Data not fonud");
         }
         await ModulesModel.update(
             {
                 name,
                 label,
                 link,
-                icon
+                icon,
             },
-            { 
+            {
                 where: { id },
-                transaction 
+                transaction,
             }
-        )
-        await transaction.commit()
-        return res.status(200).json({status: true})
+        );
+        await transaction.commit();
+        return res.status(200).json({ status: true });
     } catch (error) {
-        await transaction.rollback()
-        return res.status(400).json({status: false, messaje: error.message})
+        await transaction.rollback();
+        return res.status(400).json({ status: false, messaje: error.message });
     }
-} 
+};
 
 const Delete = async (req, res = response) => {
-    const transaction = await connection.transaction()
+    const transaction = await connection.transaction();
     try {
         const { id } = req.params;
         const fined = await ModulesModel.findOne({
-            where: { 
+            where: {
                 id,
-                active: true
+                active: true,
             },
             transaction,
-        })
+        });
         if (!fined) {
-            throw new Error("Data not fonud")
+            throw new Error("Data not fonud");
         }
         await ModulesModel.update(
             {
                 active: false,
             },
-            { 
+            {
                 where: { id },
-                transaction 
+                transaction,
             }
-        )
-        await transaction.commit()
-        return res.status(200).json({status: true})
+        );
+        await transaction.commit();
+        return res.status(200).json({ status: true });
     } catch (error) {
-        await transaction.rollback()
-        return res.status(400).json({status: false, messaje: error.message})
+        await transaction.rollback();
+        return res.status(400).json({ status: false, messaje: error.message });
     }
-} 
+};
 
 module.exports = {
     GetAll,
     GetById,
     Create,
     Update,
-    Delete
-}
+    Delete,
+};

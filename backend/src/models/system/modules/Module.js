@@ -1,7 +1,7 @@
-const { DataTypes } = require('sequelize')
-const Connection = require('../../../database/connection');
+const { DataTypes } = require("sequelize");
+const Connection = require("../../../database/connection");
 
-const ModulesModel = Connection.define('system_modules', {
+const ModulesModel = Connection.define("system_modules", {
     id: {
         type: DataTypes.INTEGER.UNSIGNED,
         autoIncrement: true,
@@ -30,7 +30,6 @@ const ModulesModel = Connection.define('system_modules', {
         allowNull: false,
         defaultValue: true,
     },
-})
-
+});
 
 module.exports = ModulesModel;

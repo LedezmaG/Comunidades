@@ -1,32 +1,32 @@
-const { Router } = require('express');
-const { check } = require('express-validator');
-const { GetAll, GetById, Create, Update, Delete } = require('../../controllers/system/PermissionsController');
-const { fileValidator } = require('../../helpers/fileValidator');
-const { JwtVerify } = require('../../helpers/jwtVerify');
+const { Router } = require("express");
+const { check } = require("express-validator");
+const {
+    GetAll,
+    GetById,
+    Create,
+    Update,
+    Delete,
+} = require("../../controllers/system/PermissionsController");
+const { fileValidator } = require("../../helpers/fileValidator");
+const { JwtVerify } = require("../../helpers/jwtVerify");
 const router = Router();
 
-router.use( JwtVerify )
+router.use(JwtVerify);
 
-router.get( 
-    '/permissions/all/:id',
-    [
-        check("id", "id no es valido").isInt(),
-        fileValidator
-    ],
+router.get(
+    "/permissions/all/:id",
+    [check("id", "id no es valido").isInt(), fileValidator],
     GetAll
 );
 
-router.get( 
-    '/permissions/:id',
-    [
-        check("id", "id no es valido").isInt(),
-        fileValidator
-    ],
+router.get(
+    "/permissions/:id",
+    [check("id", "id no es valido").isInt(), fileValidator],
     GetById
 );
 
-router.post( 
-    '/permissions',
+router.post(
+    "/permissions",
     [
         check("id_module", "Invalid value").not().isEmpty().isInt(),
         check("id_sub_module", "Invalid value").not().isEmpty().isInt(),
@@ -37,13 +37,13 @@ router.post(
         check("remove", "Invalid value").not().isEmpty().isBoolean(),
         check("app", "Invalid value").not().isEmpty().isBoolean(),
         check("web", "Invalid value").not().isEmpty().isBoolean(),
-        fileValidator
+        fileValidator,
     ],
     Create
 );
 
-router.put( 
-    '/permissions',
+router.put(
+    "/permissions",
     [
         check("id", "Invalid value").not().isEmpty().isInt(),
         check("id_module", "Invalid value").not().isEmpty().isInt(),
@@ -55,19 +55,15 @@ router.put(
         check("remove", "Invalid value").not().isEmpty().isBoolean(),
         check("app", "Invalid value").not().isEmpty().isBoolean(),
         check("web", "Invalid value").not().isEmpty().isBoolean(),
-        fileValidator
+        fileValidator,
     ],
     Update
 );
 
-router.delete( 
-    '/permissions/:id',
-    [
-        check("id", "id no es valido").isInt(),
-        fileValidator
-    ],
+router.delete(
+    "/permissions/:id",
+    [check("id", "id no es valido").isInt(), fileValidator],
     Delete
 );
-
 
 module.exports = router;

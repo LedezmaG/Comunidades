@@ -1,76 +1,78 @@
-const connection = require('../../database/connection');
-const SubModuleModel = require('../../models/system/modules/subModule');
+const connection = require("../../database/connection");
+const SubModuleModel = require("../../models/system/modules/subModule");
 
-const GetAll = async ( req, res = response ) => {
+const GetAll = async (req, res = response) => {
     try {
-        const all = await SubModuleModel.findAll({where:{ active: true }})
+        const all = await SubModuleModel.findAll({ where: { active: true } });
         if (!all) {
-            throw new Error("Data not found")
+            throw new Error("Data not found");
         }
         return res.status(200).json({
             status: true,
-            response: all
-        })
+            response: all,
+        });
     } catch (error) {
-        return res.status(400).json({status: false, messaje: error.message})
+        return res.status(400).json({ status: false, messaje: error.message });
     }
-}
+};
 
-const GetById = async ( req, res = response ) => {
+const GetById = async (req, res = response) => {
     try {
-        const {id} = req.params;
-        const byId = await SubModuleModel.findAll({where:{ id, active: true }})
+        const { id } = req.params;
+        const byId = await SubModuleModel.findAll({
+            where: { id, active: true },
+        });
         if (!byId) {
-            throw new Error("Data not found")
+            throw new Error("Data not found");
         }
         return res.status(200).json({
             status: true,
-            response: byId
-        })
+            response: byId,
+        });
     } catch (error) {
-        return res.status(400).json({status: false, messaje: error.message})
+        return res.status(400).json({ status: false, messaje: error.message });
     }
-}
+};
 
 const Create = async (req, res = response) => {
-    const transaction = await connection.transaction()
+    const transaction = await connection.transaction();
     try {
-        const { id_module, name, label, link, icon } = req.body
+        const { id_module, name, label, link, icon } = req.body;
         const created = await SubModuleModel.create(
             {
                 id_module,
                 name,
                 label,
                 link,
-                icon
+                icon,
             },
             { transaction }
-        )
-        await transaction.commit()
+        );
+        await transaction.commit();
         return res.status(200).json({
             status: true,
-            response: created
-        })
+            response: created,
+        });
     } catch (error) {
-        await transaction.rollback()
-        return res.status(400).json({status: false, messaje: error.message})
+        await transaction.rollback();
+        return res.status(400).json({ status: false, messaje: error.message });
     }
-} 
+};
 
 const Update = async (req, res = response) => {
-    const transaction = await connection.transaction()
+    const transaction = await connection.transaction();
     try {
-        const { id_module, id, name, label, link, icon } = req.body
+        const { id_module, id, name, label, link, icon } = req.body;
         const fined = await SubModuleModel.findOne({
-            where: { 
+            where: {
                 id,
-                active: true
+                active: true,
             },
             transaction,
-        })
+        });
 
         if (!fined) {
-            throw new Error("Data not fonud")
+            throw new Error("Data not fonud");
         }
         await SubModuleModel.update(
             {
@@ -78,56 +80,56 @@ const Update = async (req, res = response) => {
                 name,
                 label,
                 link,
-                icon
+                icon,
             },
-            { 
+            {
                 where: { id },
-                transaction 
+                transaction,
             }
-        )
-        await transaction.commit()
-        return res.status(200).json({status: true})
+        );
+        await transaction.commit();
+        return res.status(200).json({ status: true });
     } catch (error) {
-        await transaction.rollback()
-        return res.status(400).json({status: false, messaje: error.message})
+        await transaction.rollback();
+        return res.status(400).json({ status: false, messaje: error.message });
     }
-} 
+};
 
 const Delete = async (req, res = response) => {
-    const transaction = await connection.transaction()
+    const transaction = await connection.transaction();
     try {
         const { id } = req.params;
         const fined = await SubModuleModel.findOne({
-            where: { 
+            where: {
                 id,
-                active: true
+                active: true,
             },
             transaction,
-        })
+        });
         if (!fined) {
-            throw new Error("Data not fonud")
+            throw new Error("Data not fonud");
         }
         await SubModuleModel.update(
             {
                 active: false,
             },
-            { 
+            {
                 where: { id },
-                transaction 
+                transaction,
             }
-        )
-        await transaction.commit()
-        return res.status(200).json({status: true})
+        );
+        await transaction.commit();
+        return res.status(200).json({ status: true });
     } catch (error) {
-        await transaction.rollback()
-        return res.status(400).json({status: false, messaje: error.message})
+        await transaction.rollback();
+        return res.status(400).json({ status: false, messaje: error.message });
     }
-} 
+};
 
 module.exports = {
     GetAll,
     GetById,
     Create,
     Update,
-    Delete
-}
+    Delete,
+};

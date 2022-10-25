@@ -1,8 +1,8 @@
-const { DataTypes } = require('sequelize')
-const Connection = require('../../database/connection');
-const RolesModel = require('../system/roles/roles');
+const { DataTypes } = require("sequelize");
+const Connection = require("../../database/connection");
+const RolesModel = require("../system/roles/roles");
 
-const UsersModel = Connection.define('catalog_users', {
+const UsersModel = Connection.define("catalog_users", {
     id: {
         type: DataTypes.INTEGER.UNSIGNED,
         autoIncrement: true,
@@ -38,12 +38,12 @@ const UsersModel = Connection.define('catalog_users', {
         allowNull: false,
         defaultValue: true,
     },
-})
+});
 
 UsersModel.hasOne(RolesModel, {
-    foreignKey: 'id',
-    sourceKey: 'id_role',
+    foreignKey: "id",
+    sourceKey: "id_role",
     constraints: false,
-})
+});
 
 module.exports = UsersModel;

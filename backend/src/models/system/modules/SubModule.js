@@ -1,8 +1,8 @@
-const { DataTypes } = require('sequelize')
-const Connection = require('../../../database/connection');
-const ModulesModel = require('./Module');
+const { DataTypes } = require("sequelize");
+const Connection = require("../../../database/connection");
+const ModulesModel = require("./Module");
 
-const SubModuleModel = Connection.define('system_sub_modules', {
+const SubModuleModel = Connection.define("system_sub_modules", {
     id: {
         type: DataTypes.INTEGER.UNSIGNED,
         autoIncrement: true,
@@ -35,13 +35,12 @@ const SubModuleModel = Connection.define('system_sub_modules', {
         allowNull: false,
         defaultValue: true,
     },
-})
+});
 
 // SubModuleModel.hasOne(ModulesModel, {
 //     foreignKey: 'id',
 //     sourceKey: 'id_module',
 //     constraints: false,
 // })
-
 
 module.exports = SubModuleModel;

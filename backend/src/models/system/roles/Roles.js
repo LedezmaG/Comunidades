@@ -1,7 +1,7 @@
-const { DataTypes } = require('sequelize')
-const Connection = require('../../../database/connection')
+const { DataTypes } = require("sequelize");
+const Connection = require("../../../database/connection");
 
-const RolesModel = Connection.define('system_roles', {
+const RolesModel = Connection.define("system_roles", {
     id: {
         type: DataTypes.INTEGER.UNSIGNED,
         autoIncrement: true,
@@ -20,6 +20,6 @@ const RolesModel = Connection.define('system_roles', {
         allowNull: false,
         defaultValue: true,
     },
-})
+});
 
 module.exports = RolesModel;
